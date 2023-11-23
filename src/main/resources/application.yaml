@@ -2,7 +2,13 @@
 spring:
   application:
     name: "dining-room-gateway"
-
+cloud:
+  gateway:
+    routes:
+      - id: dining-room-catalog
+        uri: lb://dining-room-catalog
+        predicates:
+          - Path=/brands/**
 server:
   port: 8080
 
