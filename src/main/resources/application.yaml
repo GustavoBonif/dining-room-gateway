@@ -2,17 +2,17 @@
 spring:
   application:
     name: "dining-room-gateway"
-cloud:
-  gateway:
-    routes:
-      - id: dining-room-catalog
-        uri: lb://dining-room-catalog
-        predicates:
-          - Path=/brands/**
+  cloud:
+    gateway:
+      routes:
+       - id: dining-room-warehouse
+         uri: lb://dining-room-warehouse
+         predicates:
+          - Path=/stocks/**
 server:
   port: 8080
 
 eureka:
   client:
     serviceUrl:
-      defaulZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
