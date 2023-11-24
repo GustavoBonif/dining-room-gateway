@@ -9,6 +9,16 @@ spring:
          uri: lb://dining-room-warehouse
          predicates:
           - Path=/stocks/**
+
+       - id: dining-room-catalog
+         uri: lb://dining-room-catalog
+         predicates:
+          - Path=/brands/**
+
+       - id: dining-room-catalog
+         uri: lb://dining-room-catalog
+         predicates:
+           - Path=/products/**
 server:
   port: 8080
 
