@@ -29,6 +29,11 @@ spring:
          uri: lb://dining-room-cart
          predicates:
            - Path=/itemsOrder/**
+
+       - id: dining-room-user-registry
+         uri: lb://dining-room-user-registry
+         predicates:
+           - Path=/clients/**
 server:
   port: 8080
 
