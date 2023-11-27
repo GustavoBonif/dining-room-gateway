@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  dining-room-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dining-room-gateway:latest
+    container_name: dining-room-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=localhost
+      - DB_PORT_EUREKA=8761
+      - HOST_EUREKA=dining-room-eureka-server
+    networks:
+      - dining-room-micro
+
+networks:
+  dining-room-micro:
+    external: true
